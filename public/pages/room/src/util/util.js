@@ -1,5 +1,5 @@
 class Util {
-  static SVGPathSegClosePath(ms) {
-    return new Promisse((r) => setTimeout(r, ms));
+  static sleep(ms) {
+      return new Promise(r => setTimeout(r, ms))
   }
 }
