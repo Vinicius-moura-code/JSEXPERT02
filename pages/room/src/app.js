@@ -15,11 +15,14 @@ const onload = () => {
   recorderBtn.addEventListener('click', recordClick(recorderBtn)) */
 
   const view = new View();
+  const media = new Media();
+  const deps = {
+    view,
+    media,
+    room,
+  };
 
-  view.renderVideo({
-    userId: "teste01",
-    url: "https://media.giphy.com/media/9rgsR3HfDuBYhRvb0p/giphy.mp4",
-  });
+  Business.initialize(deps);
 };
 
 window.onload = onload;
