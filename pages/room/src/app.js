@@ -14,21 +14,12 @@ const onload = () => {
   /*   const recorderBtn = document.getElementById('record')
   recorderBtn.addEventListener('click', recordClick(recorderBtn)) */
 
-  const view = new view(
-    view.renderVideo({
-      userId: "teste01",
-      url: "https://media.giphy.com/media/9rgsR3HfDuBYhRvb0p/giphy.mp4",
-    }),
-    view.renderVideo({
-      userId: "teste01",
-      isCurrentId: true,
-      url: "https://media.giphy.com/media/9rgsR3HfDuBYhRvb0p/giphy.mp4",
-    }),
-    view.renderVideo({
-      userId: "teste02",
-      url: "https://media.giphy.com/media/9rgsR3HfDuBYhRvb0p/giphy.mp4",
-    })
-  );
+  const view = new View();
+
+  view.renderVideo({
+    userId: "teste01",
+    url: "https://media.giphy.com/media/9rgsR3HfDuBYhRvb0p/giphy.mp4",
+  });
 };
 
 window.onload = onload;
