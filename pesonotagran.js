@@ -13,7 +13,7 @@ function obterUsuario(callback) {
   //qUANDO SUCESSO -> resolv
   return new Promise(function resolvePromise(resolve, reject) {
     setTimeout(function () {
-      //return reject(new Error('Deu ruim mesmo'))
+      return reject(new Error('Deu ruim mesmo'))
 
       return resolve({
         id: 1,
@@ -52,8 +52,8 @@ async function main() {
   try {
     console.time('medida-promisse')
     const usuario = await obterUsuario();
-    //const telefone = await obterTelefone(usuario.id);
-    //const endereco = await obterEnderecoAsync(usuario.id);
+    const telefone = await obterTelefone(usuario.id);
+    const endereco = await obterEnderecoAsync(usuario.id);
     const resultado = await Promisse.all([
       obterTelefone(usuario.id),
       obterEnderecoAsync( usuario.id)
@@ -72,7 +72,7 @@ async function main() {
   }
 }
 
-/*const usuarioPromisse = obterUsuario()
+/const usuarioPromisse = obterUsuario()
 //Para manipular o sucesso se usa a função .then
 //Para manipular erros, usamos .catch
 usuarioPromisse
@@ -108,8 +108,8 @@ usuarioPromisse
   .catch(function (error) {
     console.error('Deu ruim', error);
   })
-*/
-/*obterUsuario(function resolverUsuario(error, usuario) {
+
+obterUsuario(function resolverUsuario(error, usuario) {
   if (error) {
     console.log('Deu ruim', error);
     return;
@@ -132,4 +132,4 @@ usuarioPromisse
     })
   });
 })
-//const telefone = obterTelefone(usuario.id);*/
+const telefone = obterTelefone(usuario.id);
